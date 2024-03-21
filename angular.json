@@ -53,12 +53,31 @@
                   "maximumError": "4kb"
                 }
               ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "outputHashing": "all"
             },
+            
             "development": {
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+
+            "staging": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.staging.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -68,6 +87,9 @@
           "configurations": {
             "production": {
               "buildTarget": "angular-test:build:production"
+            },
+            "staging": {
+              "buildTarget": "angular-test:build:staging"
             },
             "development": {
               "buildTarget": "angular-test:build:development"
